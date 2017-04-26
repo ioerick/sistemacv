@@ -78,14 +78,35 @@ create database dbsistemacv;
     usuario varchar(30) not null,
     password varchar(30) not null,
     codestado int not null default 1,
-    primary key codusuario
+    primary key (codusuario)
   )
 
   create table cargo(
     codcargo varchar (15) not null,
     descripcion varchar (15) not null,
     codestado int not null default 1,
-    primary key codcargo
+    primary key (codcargo)
+  )
+
+  create table especialidad(
+    codespecialidad varchar (15) not null,
+    descripcion varchar (50) not null,
+    codestado int not null default 1,
+    primary key (codespecialidad)
+  )
+
+  create table ocupacion(
+    codocupacion varchar (15) not null,
+    descripcion varchar (50) not null,
+    codestado int not null default 1,
+    primary key (codocupacion)
+  )
+
+  create table tamano(
+    codtamano varchar (15) not null,
+    descripcion varchar (30) not null,
+    codestado int not null default 1,
+    primary key (codtamano)
   )
 
   create table persona(
@@ -120,5 +141,55 @@ create database dbsistemacv;
     codusuario varchar (15) not null,
     cargo varchar (15) not null,
     codestado int not null default 1,
-    primary key codadministrativo
+    primary key (codadministrativo)
+  )
+
+  create table veterinario(
+    codveterinario varchar (15) not null,
+    codpersona varchar (15) not null,
+    codcontrato varchar (15) not null,
+    codespecialidad varchar (15) not null,
+    codestado varchar (15) not null default 1,
+    primary key (codveterinario)
+  )
+
+  create table auxiliar(
+    codauxiliar varchar (15) not null,
+    codpersona varchar (15) not null,
+    codcontrato varchar (15) not null,
+    codespecialidad varchar (15) not null,
+    codestado varchar (15) not null default 1,
+    primary key (codauxiliar)
+  )
+
+  create table dueno(
+    coddueno varchar (15) not null,
+    codpersona varchar (15) not null,
+    nit varchar (30) not null,
+    ocupacion varchar (15) not null,
+    codestado int not null default 1,
+    primary key (coddueno)
+  )
+
+  create table animal(
+    codanimal varchar (15) not null,
+    nombre varchar (30) not null,
+    edad int not null,
+    peso float not null,
+    tamano varchar (15) not null,
+    color varchar (15) not null,
+    descripcion varchar (15) not null,
+    codestado int not null default 1,
+    primary key (codanimal)
+  )
+
+  create table medicamento(
+    codmedicamento varchar (15) not null,
+    nombre varchar (30) not null,
+    descripcion varchar (50) not null,
+    stock int not null,
+    precio varchar (15) not null,
+    fechavencimiento date not null,
+    codestado int not null default 1,
+    primary key (codmedicamento)
   )
