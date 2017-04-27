@@ -3,143 +3,125 @@ create database dbsistemacv;
 --tabla parametrica para la variable bandera
 
   create table estado(
-    codestado int not null,
-    descripcion varchar(15) not null,
-    primary key (codestado)
+    codestado int not null primary key,
+    descripcion varchar(15) not null
   );
 
 --tablas sin dependecias mas que la variable parametrica
 
   create table sexo(
-    codsexo varchar(15) not null,
+    codsexo varchar(15) not null primary key,
     descripcion varchar(15) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codsexo)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table nacion(
-    codnacion varchar(15) not null,
+    codnacion varchar(15) not null primary key,
     descripcion varchar(50) not null,
     codestado int not null default 1 references estado(codestado),
-    primary key (codnacion)
   );
 
   create table telefono (
-    codtelefono varchar(15) not null,
+    codtelefono varchar(15) not null primary key,
     descripcion varchar(15) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codtelefono)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table correo(
-    codcorreo varchar(15) not null,
+    codcorreo varchar(15) not null primary key,
     descripcion varchar(50) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codcorreo)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table direcion(
-    coddirecion varchar(15) not null,
+    coddirecion varchar(15) not null primary key,
     zona varchar(30) not null,
     numero varchar(7) not null,
     calle varchar(30) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (coddirecion)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table raza(
-    codraza varchar(15) not null,
+    codraza varchar(15) not null primary key,
     descripcion varchar(30) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codraza)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table celda(
-    codcelda varchar(15) not null,
+    codcelda varchar(15) not null primary key,
     numero varchar(3) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codcelda)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table precio(
-    codprecio varchar(15) not null,
+    codprecio varchar(15) not null primary key,
     precio float not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codprecio)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table contrato(
-    codcontrato varchar(15) not null,
+    codcontrato varchar(15) not null primary key,
     descripcion varchar(50) not null,
     fechainicio date not null,
     fechafinal date not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codcontrato)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table usuario(
-    codusuario varchar(15) not null,
+    codusuario varchar(15) not null primary key,
     usuario varchar(30) not null,
     password varchar(30) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codusuario)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table cargo(
-    codcargo varchar(15) not null,
+    codcargo varchar(15) not null primary key,
     descripcion varchar(15) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codcargo)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table especialidad(
-    codespecialidad varchar(15) not null,
+    codespecialidad varchar(15) not null primary key,
     descripcion varchar(50) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codespecialidad)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table ocupacion(
-    codocupacion varchar(15) not null,
+    codocupacion varchar(15) not null primary key,
     descripcion varchar(50) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codocupacion)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table tamano(
-    codtamano varchar(15) not null,
+    codtamano varchar(15) not null primary key,
     descripcion varchar(30) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codtamano)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table color(
-    codcolor varchar(15) not null,
+    codcolor varchar(15) not null primary key,
     descripcion varchar(30) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codcolor)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table empresa(
-    codempresa varchar(15) not null,
+    codempresa varchar(15) not null primary key,
     descripcion varchar(50) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codempresa)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table servicio(
-    codservicio varchar(15) not null,
+    codservicio varchar(15) not null primary key,
     descripcion varchar(50) not null,
     fechaservicio date not null,
     horaservicio time not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codservicio)
+    codestado int not null default 1 references estado(codestado)
   );
 
 --tablas con dependecias de las tablas sin dependecias
 
   create table persona(
-    codpersona varchar(15) not null,
+    codpersona varchar(15) not null primary key,
     nombre varchar(50) not null,
     apellidopaterno varchar(50) not null,
     apellidomaterno varchar(50) not null,
@@ -150,145 +132,130 @@ create database dbsistemacv;
     codcorreo varchar(15) not null references correo(codcorreo),
     codnacion varchar(15) not null references nacion(codnacion),
     codsexo varchar(15) not null references sexo(codsexo),
-    codestado int not null default 1 references estado(codestado),
-    primary key (codpersona)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table administrativo(
-    codadministrativo varchar(15) not null,
+    codadministrativo varchar(15) not null primary key,
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codusuario varchar(15) not null references usuario(codusuario),
     cargo varchar(15) not null references cargo(codcargo),
-    codestado int not null default 1 references estado(codestado),
-    primary key (codadministrativo)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table veterinario(
-    codveterinario varchar(15) not null,
+    codveterinario varchar(15) not null primary key,
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
-    codestado int not null default 1 references estado(codestado),
-    primary key (codveterinario)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table auxiliar(
-    codauxiliar varchar(15) not null,
+    codauxiliar varchar(15) not null primary key,
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
-    codestado int not null default 1 references estado(codestado),
-    primary key (codauxiliar)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table dueno(
-    coddueno varchar(15) not null,
+    coddueno varchar(15) not null primary key,
     codpersona varchar(15) not null references persona(codpersona),
     nit varchar(30) not null,
     ocupacion varchar(15) not null references ocupacion(codocupacion),
-    codestado int not null default 1 references estado(codestado),
-    primary key (coddueno)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table animal(
-    codanimal varchar(15) not null,
+    codanimal varchar(15) not null primary key,
     nombre varchar(30) not null,
     edad int not null,
     peso float not null,
     tamano varchar(15) not null references tamano(codtamano),
     color varchar(15) not null references color(codcolor),
     descripcion varchar(15) not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codanimal)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table medicamento(
-    codmedicamento varchar(15) not null,
+    codmedicamento varchar(15) not null primary key,
     nombre varchar(30) not null,
     descripcion varchar(50) not null,
     stock int not null,
     precio varchar(15) not null references precio(codprecio),
     fechavencimiento date not null,
-    codestado int not null default 1 references estado(codestado),
-    primary key (codmedicamento)
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table proveedor(
-    codproveedor varchar(15) not null,
+    codproveedor varchar(15) not null primary key,
     codempresa varchar(15) not null references empresa(codempresa),
     coddirecion varchar(15) not null references direcion(coddirecion),
     codcorreo varchar(15) not null references correo(codcorreo),
     codtelefono varchar(15) not null references telefono(codtelefono),
-    codestado int not null default 1 references estado(codestado),
-    primary key (codproveedor)
+    codestado int not null default 1 references estado(codestado)
   );
 
 --tablas generadas por interrelacion
 
   create table emergencia(
-    codemergencia int not null,
+    codemergencia int not null primary key,
     codanimal varchar(15) not null references animal(codanimal),
     codveterinario varchar(15) not null references veterinario(codveterinario),
     codauxiliar varchar(15) null references auxiliar(codauxiliar),
     fechaentrada date not null,
     fechasalida date not null,
-    descripcion varchar(50) not null,
-    primary key (codemergencia)
+    descripcion varchar(50) not null
   );
 
   create table suministra(
-    codsuministra int not null,
+    codsuministra int not null primary key,
     codmedicamento varchar(15) not null references medicamento(codmedicamento),
     codproveedor varchar(15) not null references proveedor(codproveedor),
     fecha date not null,
-    descripcion varchar(50) not null,
-    primary key (codsuministra)
+    descripcion varchar(50) not null
   );
 
   create table adquiere(
-    codadquiere int not null,
+    codadquiere int not null primary key,
     codadministrativo varchar(15) not null references administrativo(codadministrativo),
     codmedicamento varchar(15) not null references medicamento(codmedicamento),
     cantidad int not null,
     fecha date not null,
-    descripcion varchar(50) not null,
-    primary key (codadquiere)
+    descripcion varchar(50) not null
   );
 
   create table hospeda(
-    codhospeda int not null,
+    codhospeda int not null primary key,
     codanimal varchar(15) not null references animal(codanimal),
     codcelda varchar(15) not null references celda(codcelda),
     fechaentrada date not null,
-    fechasalida date not null,
-    primary key (codhospeda)
+    fechasalida date not null
   );
 
   create table registra(
-    codregistra int not null,
+    codregistra int not null primary key,
     codadministrativo varchar(15) not null references administrativo(codadministrativo),
     codservicio varchar(15) not null references servicio(codservicio),
     fecha date not null,
-    descripcion varchar(50) not null,
-    primary key (codregistra)
+    descripcion varchar(50) not null
   );
 
   create table asiste(
-    codasiste int not null,
+    codasiste int not null primary key,
     codanimal varchar(15) not null references animal(codanimal),
     codservicio varchar(15) not null references servicio(codservicio),
     codveterinario varchar(15) not null references veterinario(codveterinario),
     codauxiliar varchar(15) null references auxiliar(codauxiliar),
     fecha date not null,
-    descripcion varchar(50) not null,
-    primary key (codasiste)
+    descripcion varchar(50) not null
   );
 
   create table solicita(
-    codsolicita int not null,
+    codsolicita int not null primary key,
     coddueno varchar(15) not null references dueno(coddueno),
     codservicio varchar(15) not null references servicio(codservicio),
-    fecha date not null,
-    primary key (codsolicita)
+    fecha date not null
   );
