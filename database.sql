@@ -133,7 +133,7 @@ create database dbsistemacv;
     fechaservicio date not null,
     horaservicio time not null,
     codestado int not null default 1 references estado(codestado),
-    primary key codservicio
+    primary key (codservicio)
   );
 
 --tablas con dependecias de las tablas sin dependecias
@@ -169,16 +169,16 @@ create database dbsistemacv;
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
-    codestado varchar(15) not null default 1 references estado(codestado),
+    codestado int not null default 1 references estado(codestado),
     primary key (codveterinario)
   );
 
   create table auxiliar(
     codauxiliar varchar(15) not null,
     codpersona varchar(15) not null references persona(codpersona),
-    codcontrato varchar(15) not null references codcontrato(codcontrato),
+    codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
-    codestado varchar(15) not null default 1 references estado(codestado),
+    codestado int not null default 1 references estado(codestado),
     primary key (codauxiliar)
   );
 
@@ -221,7 +221,7 @@ create database dbsistemacv;
     codcorreo varchar(15) not null references correo(codcorreo),
     codtelefono varchar(15) not null references telefono(codtelefono),
     codestado int not null default 1 references estado(codestado),
-    primary key codproveedor
+    primary key (codproveedor)
   );
 
 --tablas generadas por interrelacion
@@ -244,7 +244,7 @@ create database dbsistemacv;
     fecha date not null,
     descripcion varchar(50) not null,
     primary key (codsuministra)
-  )
+  );
 
   create table adquiere(
     codadquiere int not null,
@@ -254,7 +254,7 @@ create database dbsistemacv;
     fecha date not null,
     descripcion varchar(50) not null,
     primary key (codadquiere)
-  )
+  );
 
   create table hospeda(
     codhospeda int not null,
@@ -263,7 +263,7 @@ create database dbsistemacv;
     fechaentrada date not null,
     fechasalida date not null,
     primary key (codhospeda)
-  )
+  );
 
   create table registra(
     codregistra int not null,
@@ -272,7 +272,7 @@ create database dbsistemacv;
     fecha date not null,
     descripcion varchar(50) not null,
     primary key (codregistra)
-  )
+  );
 
   create table asiste(
     codasiste int not null,
@@ -283,7 +283,7 @@ create database dbsistemacv;
     fecha date not null,
     descripcion varchar(50) not null,
     primary key (codasiste)
-  )
+  );
 
   create table solicita(
     codsolicita int not null,
@@ -291,4 +291,4 @@ create database dbsistemacv;
     codservicio varchar(15) not null references servicio(codservicio),
     fecha date not null,
     primary key (codsolicita)
-  )
+  );
