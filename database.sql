@@ -1,5 +1,6 @@
 create database dbsistemacv;
 
+--por erick
 --tabla parametrica para la variable bandera
 
   create table estado(
