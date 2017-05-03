@@ -6,168 +6,168 @@ aqui va los procesos para probar antes del ingreso a procesosDB
 -guardarlo en un archivo unico por procedimiento con el formato siguiente
 [nombre de la tabla]-[procedimiento]-[nombre del programador].sql
 ejemplo
-sexo-insertasexo-erick.sql
+sexo-addsexo-erick.sql
 -subirlo al repositorio de procesosDBpruebas
 
 [estado]
->insertacion de datos parametricos para la tabla estados --erick
+>adicion de datos parametricos para la tabla estados --erick
 
 [sexo]
->insertasexo()
->modificasexo()
->eliminasexo()
+>addsexo()
+>editsexo()
+>deletesexo()
 
 [nacion]
->insertanacion()
->modificanacion()
->eliminanacion()
+>addnacion()
+>editnacion()
+>deletenacion()
 
 [telefono]
->insertatelefono()
->modificatelefono()
->eliminatelefono()
+>addtelefono()
+>edittelefono()
+>deletetelefono()
 
 [correo]
->insertacorreo()
->modificacorreo()
->eliminacorreo()
+>addcorreo()
+>editcorreo()
+>deletecorreo()
 
 [direccion]
->insertadireccion()
->modificadireccion()
->eliminadireccion()
+>adddireccion()
+>editdireccion()
+>deletedireccion()
 
 [raza]
->insertaraza()
->modificaraza()
->eliminaraza()
+>addraza()
+>editraza()
+>deleteraza()
 
 [celda]
->insertacelda()
->modificacelda()
->eliminacelda()
+>addcelda()
+>editcelda()
+>deletecelda()
 
 [precio]
->insertaprecio()
->modificaprecio()
->eliminaprecio()
+>addprecio()
+>editprecio()
+>deleteprecio()
 
 [contrato]
->insertacontrato()
->modificacontrato()
->eliminacontrato()
+>addcontrato()
+>editcontrato()
+>deletecontrato()
 
 [usuario]
->insertausuario()
->modificausuario()
->eliminausuario()
+>addusuario()
+>editusuario()
+>deleteusuario()
 
 [cargo]
->insertacargo()
->modificacargo()
->eliminacargo()
+>addcargo()
+>editcargo()
+>deletecargo()
 
 [especialidad]
->insertaespecialidad()
->modificaespecialidad()
->eliminaespecialidad()
+>addespecialidad()
+>editespecialidad()
+>deleteespecialidad()
 
 [ocupacion]
->insertaocupacion()
->modificaocupacion()
->eliminaocupacion()
+>addocupacion()
+>editocupacion()
+>deleteocupacion()
 
 [tamano]
->insertatamano()
->modificatamano()
->eliminatamano()
+>addtamano()
+>edittamano()
+>deletetamano()
 
 [color]
->insertacolor()
->modificacolor()
->eliminacolor()
+>addcolor()
+>editcolor()
+>deletecolor()
 
 [empresa]
->insertaempresa()
->modificaempresa()
->eliminaempresa()
+>addempresa()
+>editempresa()
+>deleteempresa()
 
 [servicio]
->insertaservicio()
->modificaservicio()
->eliminaservicio()
+>addservicio()
+>editservicio()
+>deleteservicio()
 
 [persona]
->insertapersona()
->modificapersona()
->eliminapersona()
+>addpersona()
+>editpersona()
+>deletepersona()
 
 [administrativo]
->insertaadministrativo()
->modificaadministrativo()
->eliminaadministrativo()
+>addadministrativo()
+>editadministrativo()
+>deleteadministrativo()
 
 [veterinario]
->insertaveterinario()
->modificaveterinario()
->eliminaveterinario()
+>addveterinario()
+>editveterinario()
+>deleteveterinario()
 
 [auxiliar]
->insertaauxiliar()
->modificaauxiliar()
->eliminaauxiliar()
+>addauxiliar()
+>editauxiliar()
+>deleteauxiliar()
 
 [dueno]
->insertadueno()
->modificadueno()
->eliminadueno()
+>adddueno()
+>editdueno()
+>deletedueno()
 
 [animal]
->insertaanimal()
->modificaanimal()
->eliminaanimal()
+>addanimal()
+>editanimal()
+>deleteanimal()
 
 [medicamento]
->insertamedicamento()
->modificamedicamento()
->eliminamedicamento()
+>addmedicamento()
+>editmedicamento()
+>deletemedicamento()
 
 [proveedor]
->insertaproveedor()
->modificaproveedor()
->eliminaproveedor()
+>addproveedor()
+>editproveedor()
+>deleteproveedor()
 
 [emergencia]
->insertaemergencia()
->modificaemergencia()
->eliminaemergencia()
+>addemergencia()
+>editemergencia()
+>deleteemergencia()
 
 [suministra]
->insertasuministra()
->modificasuministra()
->eliminasuministra()
+>addsuministra()
+>editsuministra()
+>deletesuministra()
 
 [adquiere]
->insertaadquiere()
->modificaadquiere()
->eliminaadquiere()
+>addadquiere()
+>editadquiere()
+>deleteadquiere()
 
 [hospeda]
->insertahospeda()
->modificahospeda()
->eliminahospeda()
+>addhospeda()
+>edithospeda()
+>deletehospeda()
 
 [registra]
->insertaregistra()
->modificaregistra()
->eliminaregistra()
+>addregistra()
+>editregistra()
+>deleteregistra()
 
 [asiste]
->insertaasiste()
->modificaasiste()
->eliminaasiste()
+>addasiste()
+>editasiste()
+>deleteasiste()
 
 [solicita]
->insertasolicita()
->modificasolicita()
->eliminasolicita()
+>addsolicita()
+>editsolicita()
+>deletesolicita()
