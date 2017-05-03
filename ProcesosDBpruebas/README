@@ -2,6 +2,13 @@ aqui va los procesos para probar antes del ingreso a procesosDB
 
 (procedimiento) --nombre de programador-- *nombre del testeador*
 
+-programar el procedimiento
+-guardarlo en un archivo unico por procedimiento con el formato siguiente
+[nombre de la tabla]-[procedimiento]-[nombre del programador].sql
+ejemplo
+sexo-insertasexo-erick.sql
+-subirlo al repositorio de procesosDBpruebas
+
 [estado]
 >insertacion de datos parametricos para la tabla estados --erick
 
