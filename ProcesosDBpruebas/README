@@ -1,6 +1,6 @@
 aqui va los procesos para probar antes del ingreso a procesosDB
 
-(procedimiento) --(nombre de programador)-- *(nombre del testeador)*
+(procedimiento) --nombre de programador-- *nombre del testeador*
 
 [estado]
 >insertacion de datos parametricos para la tabla estados --erick
