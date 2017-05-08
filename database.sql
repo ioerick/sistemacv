@@ -19,7 +19,7 @@ create database dbsistemacv;
   create table nacion(
     codnacion varchar(15) not null primary key,
     descripcion varchar(50) not null,
-    codestado int not null default 1 references estado(codestado),
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table telefono (
