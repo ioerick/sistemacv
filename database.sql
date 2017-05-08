@@ -35,7 +35,7 @@ create database dbsistemacv;
   );
 
   create table direcion(
-    coddirecion varchar(15) not null primary key,
+    coddirecion varchar(15) not null primary key, -- (codigo de ciudad) + (la##) + (lo##)
     zona varchar(30) not null,
     numero varchar(7) not null,
     calle varchar(30) not null,
@@ -122,12 +122,11 @@ create database dbsistemacv;
 --tablas con dependecias de las tablas sin dependecias
 
   create table persona(
-    codpersona varchar(15) not null primary key,
+    codpersona varchar(15) not null primary key, --llave generada (apellidopaterno)+(apellidomaterno)+(nombre)+(ci)
     nombre varchar(50) not null,
     apellidopaterno varchar(50) not null,
     apellidomaterno varchar(50) not null,
     ci varchar(15) not null,
-    edad int not null,
     fechanacimiento date not null,
     codtelefono varchar(15) references telefono(codtelefono),
     codcorreo varchar(15) not null references correo(codcorreo),
@@ -137,7 +136,7 @@ create database dbsistemacv;
   );
 
   create table administrativo(
-    codadministrativo varchar(15) not null primary key,
+    codadministrativo varchar(15) not null primary key, --llave generada adm+(ci)
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codusuario varchar(15) not null references usuario(codusuario),
@@ -146,7 +145,7 @@ create database dbsistemacv;
   );
 
   create table veterinario(
-    codveterinario varchar(15) not null primary key,
+    codveterinario varchar(15) not null primary key, --llave generada vet+(ci)
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
@@ -154,7 +153,7 @@ create database dbsistemacv;
   );
 
   create table auxiliar(
-    codauxiliar varchar(15) not null primary key,
+    codauxiliar varchar(15) not null primary key, --llave generada aux+(ci)
     codpersona varchar(15) not null references persona(codpersona),
     codcontrato varchar(15) not null references contrato(codcontrato),
     codespecialidad varchar(15) not null references especialidad(codespecialidad),
@@ -162,7 +161,7 @@ create database dbsistemacv;
   );
 
   create table dueno(
-    coddueno varchar(15) not null primary key,
+    coddueno varchar(15) not null primary key, --llave generada due+(ci)
     codpersona varchar(15) not null references persona(codpersona),
     nit varchar(30) not null,
     ocupacion varchar(15) not null references ocupacion(codocupacion),
