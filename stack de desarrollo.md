@@ -26,8 +26,7 @@
 **Editar apache2.conf**
 >sudo nano /etc/apache2/conf.d/phppgadmin
 
-**Remplazar las lineas**
-># allow from all
+**Descomentar la linea**
 >allow from all
 
 **Reiniciar apache2**
