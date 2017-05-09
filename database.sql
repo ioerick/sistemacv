@@ -8,6 +8,9 @@ create database dbsistemacv;
     descripcion varchar(15) not null
   );
 
+  insert into estado values (0, 'no activo');
+  insert into estado values (1, 'activo');
+
 --tablas sin dependecias mas que la variable parametrica
 
   create table sexo(
