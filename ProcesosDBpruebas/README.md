@@ -4,201 +4,201 @@ aqui va los procesos para probar antes del ingreso a procesosDB
 
 -programar el procedimiento
 -guardarlo en un archivo unico por procedimiento con el formato siguiente
-[nombre de la tabla]-procedimientos-[nombre del programador].sql
+**nombre de la tabla-procedimientos-nombre del programador.sql**
 ejemplo
 sexo-procedimientos-erick.sql
 -subirlo al repositorio de procesosDBpruebas
 
-[estado]
+**estado**
 >adicion de datos parametricos para la tabla estados --erick
 
-[sexo] --erick
+**sexo** --erick
 >addsexo()
 >editsexo()
 >deletesexo()
 >searchsexo()
 
-[nacion]
+**nacion**
 >addnacion()
 >editnacion()
 >deletenacion()
 >searchnacion()
 
-[telefono]
+**telefono**
 >addtelefono()
 >edittelefono()
 >deletetelefono()
 >searchtelefono()
 
-[correo]
+**correo**
 >addcorreo()
 >editcorreo()
 >deletecorreo()
 >searchcorreo()
 
-[direccion]
+**direccion**
 >adddireccion()
 >editdireccion()
 >deletedireccion()
 >searchdireccion()
 
-[raza]
+**raza**
 >addraza()
 >editraza()
 >deleteraza()
 >searchraza()
 
-[celda]
+**celda**
 >addcelda()
 >editcelda()
 >deletecelda()
 >searchcelda()
 
-[precio]
+**precio**
 >addprecio()
 >editprecio()
 >deleteprecio()
 >searchprecio()
 
-[contrato]
+**contrato**
 >addcontrato()
 >editcontrato()
 >deletecontrato()
 >searchcontrato()
 
-[usuario]
+**usuario**
 >addusuario()
 >editusuario()
 >deleteusuario()
 >searchusario()
 
-[cargo]
+**cargo**
 >addcargo()
 >editcargo()
 >deletecargo()
 >searchcargo()
 
-[especialidad]
+**especialidad**
 >addespecialidad()
 >editespecialidad()
 >deleteespecialidad()
 >searchespecialidad()
 
-[ocupacion]
+**ocupacion**
 >addocupacion()
 >editocupacion()
 >deleteocupacion()
 >searchocupacion()
 
-[tamano]
+**tamano**
 >addtamano()
 >edittamano()
 >deletetamano()
 >searchtamano()
 
-[color]
+**color**
 >addcolor()
 >editcolor()
 >deletecolor()
 >searchcolor()
 
-[empresa]
+**empresa**
 >addempresa()
 >editempresa()
 >deleteempresa()
 >searchempresa()
 
-[servicio]
+**servicio**
 >addservicio()
 >editservicio()
 >deleteservicio()
 >searchservicio()
 
-[persona]
+**persona**
 >addpersona()
 >editpersona()
 >deletepersona()
 >searchpersona()
 
-[administrativo]
+**administrativo**
 >addadministrativo()
 >editadministrativo()
 >deleteadministrativo()
 >searchadministrativo()
 
-[veterinario]
+**veterinario**
 >addveterinario()
 >editveterinario()
 >deleteveterinario()
 >searchveterinario()
 
-[auxiliar]
+**auxiliar**
 >addauxiliar()
 >editauxiliar()
 >deleteauxiliar()
 >searchauxiliar()
 
-[dueno]
+**dueno**
 >adddueno()
 >editdueno()
 >deletedueno()
 >searchdueno()
 
-[animal]
+**animal**
 >addanimal()
 >editanimal()
 >deleteanimal()
 >searchanimal()
 
-[medicamento]
+**medicamento**
 >addmedicamento()
 >editmedicamento()
 >deletemedicamento()
 >searchmedicamento()
 
-[proveedor]
+**proveedor**
 >addproveedor()
 >editproveedor()
 >deleteproveedor()
 >searchproveedor()
 
-[emergencia]
+**emergencia**
 >addemergencia()
 >editemergencia()
 >deleteemergencia()
 >searchemergencia()
 
-[suministra]
+**suministra**
 >addsuministra()
 >editsuministra()
 >deletesuministra()
 >searchsuministra()
 
-[adquiere]
+**adquiere**
 >addadquiere()
 >editadquiere()
 >deleteadquiere()
 >searchadquiere()
 
-[hospeda]
+**hospeda**
 >addhospeda()
 >edithospeda()
 >deletehospeda()
 >searchhospeda()
 
-[registra]
+**registra**
 >addregistra()
 >editregistra()
 >deleteregistra()
 >searchregistra()
 
-[asiste]
+**asiste**
 >addasiste()
 >editasiste()
 >deleteasiste()
 >searchasiste()
 
-[solicita]
+**solicita**
 >addsolicita()
 >editsolicita()
 >deletesolicita()
