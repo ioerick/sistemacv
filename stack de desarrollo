@@ -1,5 +1,0 @@
-stack 1
-  OS + apache + postgresql + php + html + css + js
-stack 2
-  lapp
-  linux + apache + postgresql + php | python | perl
