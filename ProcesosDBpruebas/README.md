@@ -9,8 +9,13 @@ ejemplo
 sexo-procedimientos-erick.sql
 -subirlo al repositorio de procesosDBpruebas
 
+# por erick
+# tabla parametrica para la variable bandera
+
 **estado**
 >adicion de datos parametricos para la tabla estados --erick
+
+# tablas sin dependecias mas que la variable parametrica
 
 **sexo** --erick
 >addsexo()
@@ -18,187 +23,191 @@ sexo-procedimientos-erick.sql
 >deletesexo()
 >searchsexo()
 
-**nacion**
+**nacion** --pame
 >addnacion()
 >editnacion()
 >deletenacion()
 >searchnacion()
 
-**telefono**
+**telefono** --pame
 >addtelefono()
 >edittelefono()
 >deletetelefono()
 >searchtelefono()
 
-**correo**
+**correo** --pame
 >addcorreo()
 >editcorreo()
 >deletecorreo()
 >searchcorreo()
 
-**direccion**
+**direccion** --pame
 >adddireccion()
 >editdireccion()
 >deletedireccion()
 >searchdireccion()
 
-**raza**
+**raza** --pame
 >addraza()
 >editraza()
 >deleteraza()
 >searchraza()
 
-**celda**
+**celda** --laura
 >addcelda()
 >editcelda()
 >deletecelda()
 >searchcelda()
 
-**precio**
+**precio** --laura
 >addprecio()
 >editprecio()
 >deleteprecio()
 >searchprecio()
 
-**contrato**
+**contrato** --laura
 >addcontrato()
 >editcontrato()
 >deletecontrato()
 >searchcontrato()
 
-**usuario**
+**usuario** --laura
 >addusuario()
 >editusuario()
 >deleteusuario()
 >searchusario()
 
-**cargo**
+**cargo** --laura
 >addcargo()
 >editcargo()
 >deletecargo()
 >searchcargo()
 
-**especialidad**
+**especialidad** --davis
 >addespecialidad()
 >editespecialidad()
 >deleteespecialidad()
 >searchespecialidad()
 
-**ocupacion**
+**ocupacion** --davis
 >addocupacion()
 >editocupacion()
 >deleteocupacion()
 >searchocupacion()
 
-**tamano**
+**tamano** --davis
 >addtamano()
 >edittamano()
 >deletetamano()
 >searchtamano()
 
-**color**
+**color** --davis
 >addcolor()
 >editcolor()
 >deletecolor()
 >searchcolor()
 
-**empresa**
+**empresa** --davis
 >addempresa()
 >editempresa()
 >deleteempresa()
 >searchempresa()
 
-**servicio**
+**servicio** --junior
 >addservicio()
 >editservicio()
 >deleteservicio()
 >searchservicio()
 
-**persona**
+# tablas con dependecias de las tablas sin dependecias
+
+**persona** --junior
 >addpersona()
 >editpersona()
 >deletepersona()
 >searchpersona()
 
-**administrativo**
+**administrativo** --junior
 >addadministrativo()
 >editadministrativo()
 >deleteadministrativo()
 >searchadministrativo()
 
-**veterinario**
+**veterinario** --junior
 >addveterinario()
 >editveterinario()
 >deleteveterinario()
 >searchveterinario()
 
-**auxiliar**
+**auxiliar** --junior
 >addauxiliar()
 >editauxiliar()
 >deleteauxiliar()
 >searchauxiliar()
 
-**dueno**
+**dueno** --marco
 >adddueno()
 >editdueno()
 >deletedueno()
 >searchdueno()
 
-**animal**
+**animal** --marco
 >addanimal()
 >editanimal()
 >deleteanimal()
 >searchanimal()
 
-**medicamento**
+**medicamento** --rafael
 >addmedicamento()
 >editmedicamento()
 >deletemedicamento()
 >searchmedicamento()
 
-**proveedor**
+**proveedor** --rafael
 >addproveedor()
 >editproveedor()
 >deleteproveedor()
 >searchproveedor()
 
-**emergencia**
+# tablas generadas por interrelacion
+
+**emergencia** --eric
 >addemergencia()
 >editemergencia()
 >deleteemergencia()
 >searchemergencia()
 
-**suministra**
+**suministra** --eric
 >addsuministra()
 >editsuministra()
 >deletesuministra()
 >searchsuministra()
 
-**adquiere**
+**adquiere** --eber
 >addadquiere()
 >editadquiere()
 >deleteadquiere()
 >searchadquiere()
 
-**hospeda**
+**hospeda** --eber
 >addhospeda()
 >edithospeda()
 >deletehospeda()
 >searchhospeda()
 
-**registra**
+**registra** --erick
 >addregistra()
 >editregistra()
 >deleteregistra()
 >searchregistra()
 
-**asiste**
+**asiste** --erick
 >addasiste()
 >editasiste()
 >deleteasiste()
 >searchasiste()
 
-**solicita**
+**solicita** --erick
 >addsolicita()
 >editsolicita()
 >deletesolicita()
