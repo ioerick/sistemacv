@@ -1,5 +1,5 @@
 
-  **LAPP**
+#**LAPP**
 [Instalar Apache + PHP]
 >sudo aptitude update
 >sudo apt-get install apache2 php5 libapache2-mod-php5
