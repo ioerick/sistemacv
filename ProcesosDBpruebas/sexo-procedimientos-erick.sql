@@ -1,6 +1,6 @@
 create function addsexo(
-  pk varchar(15) not null,
-  c1 varchar(15) not null,
+  pk varchar(15),
+  c1 varchar(15)
 ) returns void as
 $body$
 begin
@@ -10,8 +10,8 @@ $body$
 language plpgsql;
 
 create function editsexo(
-  pk varchar(15)  not null,
-  c1 varchar(15)  not null,
+  pk varchar(15),
+  c1 varchar(15)
 ) returns void as
 $body$
 begin
@@ -21,7 +21,7 @@ $body$
 language plpgsql;
 
 create function deletesexo(
-  pk varchar(15)  not null
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -31,7 +31,7 @@ $body$
 language plpgsql;
 
 create function searchsexo(
-  pk varchar(15)  not null,
+  pk varchar(15)
 ) returns void as
 $body$
 begin

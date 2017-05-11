@@ -1,8 +1,8 @@
 create function addsolicita(
-  pk int not null,
-  c1 varchar(15) not null,
-  c2 varchar(15) not null,
-  c3 date not null,
+  pk int,
+  c1 varchar(15),
+  c2 varchar(15),
+  c3 date
 ) returns void as
 $body$
 begin
@@ -12,10 +12,10 @@ $body$
 language plpgsql;
 
 create function editsolicita(
-  pk int not null,
-  c1 varchar(15) not null,
-  c2 varchar(15) not null,
-  c3 date not null,
+  pk int,
+  c1 varchar(15),
+  c2 varchar(15),
+  c3 date
 ) returns void as
 $body$
 begin
@@ -25,7 +25,7 @@ $body$
 language plpgsql;
 
 create function deletesolicita(
-  pk int not null
+  pk int
 ) returns void as
 $body$
 begin
@@ -35,7 +35,7 @@ $body$
 language plpgsql;
 
 create function searchsolicita(
-
+  pk int
 ) returns void as
 $body$
 begin
