@@ -210,7 +210,8 @@ create database dbsistemacv;
     codauxiliar varchar(15) null references auxiliar(codauxiliar),
     fechaentrada date not null,
     fechasalida date not null,
-    descripcion varchar(50) not null
+    descripcion varchar(50) not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table suministra(
@@ -218,7 +219,8 @@ create database dbsistemacv;
     codmedicamento varchar(15) not null references medicamento(codmedicamento),
     codproveedor varchar(15) not null references proveedor(codproveedor),
     fecha date not null,
-    descripcion varchar(50) not null
+    descripcion varchar(50) not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table adquiere(
@@ -227,7 +229,8 @@ create database dbsistemacv;
     codmedicamento varchar(15) not null references medicamento(codmedicamento),
     cantidad int not null,
     fecha date not null,
-    descripcion varchar(50) not null
+    descripcion varchar(50) not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table hospeda(
@@ -235,7 +238,8 @@ create database dbsistemacv;
     codanimal varchar(15) not null references animal(codanimal),
     codcelda varchar(15) not null references celda(codcelda),
     fechaentrada date not null,
-    fechasalida date not null
+    fechasalida date not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table registra(
@@ -243,7 +247,8 @@ create database dbsistemacv;
     codadministrativo varchar(15) not null references administrativo(codadministrativo),
     codservicio varchar(15) not null references servicio(codservicio),
     fecha date not null,
-    descripcion varchar(50) not null
+    descripcion varchar(50) not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table asiste(
@@ -253,12 +258,14 @@ create database dbsistemacv;
     codveterinario varchar(15) not null references veterinario(codveterinario),
     codauxiliar varchar(15) null references auxiliar(codauxiliar),
     fecha date not null,
-    descripcion varchar(50) not null
+    descripcion varchar(50) not null,
+    codestado int not null default 1 references estado(codestado)
   );
 
   create table solicita(
     codsolicita int not null primary key,
     coddueno varchar(15) not null references dueno(coddueno),
     codservicio varchar(15) not null references servicio(codservicio),
-    fecha date not null
+    fecha date not null,
+    codestado int not null default 1 references estado(codestado)
   );
