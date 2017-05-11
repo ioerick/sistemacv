@@ -8,7 +8,7 @@ insert into sexo values (pk, c1, 1);
 end;
 $body$
 language plpgsql;
-
+--probado
 create function editsexo(
   pk varchar(15),
   c1 varchar(15)
@@ -19,7 +19,7 @@ update sexo set descripcion = c1 where codsexo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
-
+--probado
 create function deletesexo(
   pk varchar(15)
 ) returns void as
@@ -29,7 +29,7 @@ update sexo set codestado = 0 where codsexo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
-
+--probado
 create function searchsexo(
   pk varchar(15)
 ) returns void as
@@ -39,3 +39,4 @@ select * from sexo where codsexo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+--probado
