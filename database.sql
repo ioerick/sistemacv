@@ -45,9 +45,9 @@ create table direcion(
   codestado int not null default 1 references estado(codestado)
 );
 
-create table raza(
-  codraza varchar(15) not null primary key,
-  descripcion varchar(30) not null,
+create table especie(
+  codespecie varchar(15) not null primary key,
+  descripcion varchar(50) not null,
   codestado int not null default 1 references estado(codestado)
 );
 
@@ -171,14 +171,22 @@ create table dueno(
   codestado int not null default 1 references estado(codestado)
 );
 
+create table raza(
+  codraza varchar(15) not null primary key,
+  codespecie varchar(15) not null references especie(codespecie),
+  descripcion varchar(30) not null,
+  codestado int not null default 1 references estado(codestado)
+);
+
 create table animal(
   codanimal varchar(15) not null primary key,
   nombre varchar(30) not null,
-  edad int not null,
+  fechanacimiento date not null,
   peso float not null,
   tamano varchar(15) not null references tamano(codtamano),
   color varchar(15) not null references color(codcolor),
-  descripcion varchar(15) not null,
+  codespecie varchar(15) not null references especie(codespecie),
+  codraza varchar(15) not null references raza(codraza),
   codestado int not null default 1 references estado(codestado)
 );
 
