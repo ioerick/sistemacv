@@ -43,3 +43,5 @@ select * from solicita where codsolicita = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido y probado por erick

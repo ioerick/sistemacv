@@ -1,6 +1,6 @@
 create function addprecio(
-  pk varchar(15) not null,
-  c1 float not null
+  pk varchar(15),
+  c1 float
 ) returns void as
 $body$
 begin
@@ -10,8 +10,8 @@ $body$
 language plpgsql;
 
 create function editprecio(
-  pk varchar(15)  not null,
-  c1 float  not null
+  pk varchar(15),
+  c1 float
 ) returns void as
 $body$
 begin
@@ -21,7 +21,7 @@ $body$
 language plpgsql;
 
 create function deleteprecio(
-  pk varchar(15)  not null
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -31,7 +31,7 @@ $body$
 language plpgsql;
 
 create function searchprecio(
-  pk varchar(15)  not null,
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -39,3 +39,5 @@ select * from precio where codprecio = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido y probado por erick

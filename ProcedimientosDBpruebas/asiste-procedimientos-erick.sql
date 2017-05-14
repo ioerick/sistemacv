@@ -1,7 +1,7 @@
 create function addasiste(
   pk int,
   c1 varchar(15),
-  c2 varchar(15,
+  c2 varchar(15),
   c3 varchar(15),
   c4 varchar(15),
   c5 date,
@@ -17,7 +17,7 @@ language plpgsql;
 create function editasiste(
   pk int,
   c1 varchar(15),
-  c2 varchar(15,
+  c2 varchar(15),
   c3 varchar(15),
   c4 varchar(15),
   c5 date,
@@ -49,3 +49,5 @@ select * from asiste where codasiste = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--probado y corregido por erick

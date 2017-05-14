@@ -1,10 +1,10 @@
 create function addnacion(
-pk varchar(15),
-c1 varchar(50)
+  pk varchar(15),
+  c1 varchar(50)
 ) returns void as
 $body$
 begin
-insert into nacion values (pk,c1,1);
+insert into nacion values (pk, c1, 1);
 end;
 $body$
 language plpgsql;
@@ -39,3 +39,5 @@ select * from nacion where codnacion = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido y probado por erick

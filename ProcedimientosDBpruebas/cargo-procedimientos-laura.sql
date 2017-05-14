@@ -1,6 +1,6 @@
 create function addcargo(
-  pk varchar(15) not null,
-  c1 varchar(15) not null,
+  pk varchar(15),
+  c1 varchar(15)
 ) returns void as
 $body$
 begin
@@ -10,8 +10,8 @@ $body$
 language plpgsql;
 
 create function editcargo(
-  pk varchar(15) not null,
-  c1 varchar(15) not null,
+  pk varchar(15),
+  c1 varchar(15)
 ) returns void as
 $body$
 begin
@@ -21,8 +21,7 @@ $body$
 language plpgsql;
 
 create function deletecargo(
-  pk varchar(15) not null,
-  c1 varchar(15) not null,
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -32,8 +31,7 @@ $body$
 language plpgsql;
 
 create function searchcargo(
-  pk varchar(15) not null,
-  c1 varchar(15) not null,
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -41,3 +39,5 @@ select * from cargo where codcargo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido y probado por erick

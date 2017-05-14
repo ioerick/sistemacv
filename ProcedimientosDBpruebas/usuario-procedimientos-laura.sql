@@ -1,7 +1,7 @@
 create function addusuario(
-  pk varchar(15) not null,
-  c1 varchar(30) not null,
-  c2 varchar(30) not null
+  pk varchar(15),
+  c1 varchar(30),
+  c2 varchar(30)
 ) returns void as
 $body$
 begin
@@ -11,21 +11,19 @@ $body$
 language plpgsql;
 
 create function editusuario(
-  pk varchar(15) not null,
-  c1 varchar(30) not null,
-  c2 varchar(30) not null
+  pk varchar(15),
+  c1 varchar(30),
+  c2 varchar(30)
 ) returns void as
 $body$
 begin
-update usuario set usuario = c1 where codusuario = pk and password = c2 and codestado != 0;
+update usuario set usuario = c1, password = c2 where codusuario = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
 
 create function deleteusuario(
-  pk varchar(15) not null,
-  c1 varchar(30) not null,
-  c2 varchar(30) not null
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -35,9 +33,7 @@ $body$
 language plpgsql;
 
 create function searchusuario(
-  pk varchar(15) not null,
-  c1 varchar(30) not null,
-  c2 varchar(30) not null
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -45,3 +41,5 @@ select * from usuario where codusuario = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido y probado por erick
