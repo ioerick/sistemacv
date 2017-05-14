@@ -270,4 +270,3 @@ create table solicita(
   fecha date not null,
   codestado int not null default 1 references estado(codestado)
 );
-s
