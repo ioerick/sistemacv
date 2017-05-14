@@ -4,7 +4,7 @@ create function addmedicamento(
   c2 varchar(50),
   c3 int,
   c4 varchar(15),
-  c5 date,
+  c5 date
 ) returns void as
 $body$
 begin
@@ -19,7 +19,7 @@ create function editmedicamento(
   c2 varchar(50),
   c3 int,
   c4 varchar(15),
-  c5 date,
+  c5 date
 ) returns void as
 $body$
 begin
@@ -39,7 +39,7 @@ $body$
 language plpgsql;
 
 create function searchmedicamento(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -48,4 +48,4 @@ end;
 $body$
 language plpgsql;
 
---corregido y probado por erick
+--corregido por erick

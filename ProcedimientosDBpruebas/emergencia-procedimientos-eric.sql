@@ -50,4 +50,4 @@ end;
 $body$
 language plpgsql;
 
---corregido y probado con erick
+--corregido por erick

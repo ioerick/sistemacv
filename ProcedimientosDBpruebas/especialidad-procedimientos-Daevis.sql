@@ -1,6 +1,6 @@
 create function addespecilidad(
   pk varchar(15),
-  c1 varchar(50),
+  c1 varchar(50)
 ) returns void as
 $body$
 begin
@@ -21,7 +21,7 @@ $body$
 language plpgsql;
 
 create function deleteespecilidad(
-  pk varchar(15),
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -40,4 +40,4 @@ end;
 $body$
 language plpgsql;
 
---corregido y probado por erick
+--corregido por erick

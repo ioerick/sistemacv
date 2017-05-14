@@ -6,7 +6,7 @@ create function adddirecion(
 ) returns void as
 $body$
 begin
-insert into sexo values (pk, c1, c2, c3, 1);
+insert into direcion values (pk, c1, c2, c3, 1);
 end;
 $body$
 language plpgsql;
@@ -19,7 +19,7 @@ create function editdirecion(
 ) returns void as
 $body$
 begin
-update direcion set zona = c1 numero = c2 calle = c3 where coddirecion = pk and codestado != 0;
+update direcion set zona = c1, numero = c2, calle = c3 where coddirecion = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
@@ -43,3 +43,5 @@ select * from direcion where coddirecion = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido por erick

@@ -20,7 +20,7 @@ end;
 $body$
 language plpgsql;
 
-create function deletesexo(
+create function deleteempresa(
   pk varchar(15)
 ) returns void as
 $body$
@@ -40,4 +40,4 @@ end;
 $body$
 language plpgsql;
 
---corregido y probado por erick
+--corregido por erick

@@ -15,7 +15,7 @@ create function editraza(
 ) returns void as
 $body$
 begin
-update sexo set descripcion = c1 where codraza = pk and codestado != 0;
+update raza set descripcion = c1 where codraza = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
@@ -39,3 +39,5 @@ select * from raza where codraza = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido por erick

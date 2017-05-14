@@ -21,7 +21,7 @@ create function editproveedor(
 ) returns void as
 $body$
 begin
-update proveedor set codempresa = c1 , coddireccion = c2 , codcorreo = c3 codtelefono = c4 where codproveedor = pk and codestado !=0;
+update proveedor set codempresa = c1 , coddireccion = c2 , codcorreo = c3, codtelefono = c4 where codproveedor = pk and codestado !=0;
 end;
 $body$
 language plpgsql;
@@ -46,4 +46,4 @@ end;
 $body$
 language plpgsql;
 
---corregido y probado por erick
+--corregido por erick

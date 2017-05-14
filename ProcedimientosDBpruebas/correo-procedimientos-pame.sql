@@ -15,7 +15,7 @@ create function editcorreo(
 ) returns void as
 $body$
 begin
-update sexo set descripcion = c1 where codcorreo = pk and codestado != 0;
+update correo set descripcion = c1 where codcorreo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
@@ -25,7 +25,7 @@ create function deletecorreo(
 ) returns void as
 $body$
 begin
-update sexo set codestado = 0 where codcorreo = pk and codestado != 0;
+update correo set codestado = 0 where codcorreo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
@@ -35,7 +35,9 @@ create function searchcorreo(
 ) returns void as
 $body$
 begin
-select * from sexo where codcorreo = pk and codestado != 0;
+select * from correo where codcorreo = pk and codestado != 0;
 end;
 $body$
 language plpgsql;
+
+--corregido por erick
