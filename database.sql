@@ -53,7 +53,7 @@ create database dbsistemacv;
 
   create table celda(
     codcelda varchar(15) not null primary key,
-    numero varchar(3) not null,
+    numero varchar(5) not null,
     codestado int not null default 1 references estado(codestado)
   );
 
@@ -218,6 +218,7 @@ create database dbsistemacv;
     codsuministra int not null primary key,
     codmedicamento varchar(15) not null references medicamento(codmedicamento),
     codproveedor varchar(15) not null references proveedor(codproveedor),
+    cantidad int not null,
     fecha date not null,
     descripcion varchar(50) not null,
     codestado int not null default 1 references estado(codestado)
