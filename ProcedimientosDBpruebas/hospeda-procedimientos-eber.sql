@@ -1,49 +1,51 @@
-create function addhospeda(
-	pk int,
-	c1 varchar(15),
-	c2 varchar(15),
-	c3 date,
-	c4 date
-)returns void as
-$body$
-begin
-insert into hospeda values(pk, c1, c2, c3, c4, 1);
-end;
-$body$
-language plpgsql;
+﻿create function addhospeda
+	(	
+		pk int,
+		fk1 varchar(15),
+		fk2 varchar(15),
+		fec1 date,
+		fec2 date
+	)returns void as
+	$body$
+	begin 
+	insert into hospeda values(pk,fk1,fk2,fec1,fec2);
+	end;
+	$body$
+	language plpgsql;
 
-create function edithospeda(
-	pk int,
-	c1 varchar(15),
-	c2 varchar(15),
-	c3 date,
-	c4 date
-) returns void as
-$body$
-begin
-update hospeda set codanimal = c1, codcelda = c2, fechaentrada = c3, fechasalida = c4 where codhospeda = pk and codestado != 0;
-end;
-$body$
-language plpgsql;
+	create function edithospeda
+	(
+		pk int,
+		fk1 varchar(15),
+		fk2 varchar(15),
+		fec1 date,
+		fec2 date
+	) returns void as
+	$body$
+	begin
+	update hospeda set codanimal=fk1,codcelda=fk2, fechaentrada = fec1, fechasalida= fec2 where codhospeda=pk;
+	end;
+	$body$
+	language plpgsql;
 
-create function deletehospeda(
-	pk int
-)returns void as
-$body$
-begin
-update hospeda set codestado = 0 where codhospeda = pk and codestado != 0;
-end;
-$body$
-language plpgsql;
+	create function deletehospeda
+	(
+		pk int
+	)returns void as
+	$body$
+	begin
+	update hospeda set codanimal=0,codcelda=0 where codhospeda=pk;
+	end;
+	$body$
+	language plpgsql;
 
-create function searchhospeda(
-	pk int
-)returns void as
-$body$
-begin
-select * from hospeda where codhospeda = pk and codestado != 0;
-end;
-$body$
-language plpgsql;
-
---corregido por erick
+	create function searchhospeda
+	(
+		pk int
+	)returns void as
+	$body$
+	begin
+	select * from hospeda where codhospeda=pk;
+	end;
+	$body$
+	language plpgsql;
