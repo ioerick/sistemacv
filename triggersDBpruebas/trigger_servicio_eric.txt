@@ -1,0 +1,53 @@
+﻿
+--para la tabla servicio
+
+CREATE FUNCTION validar_descripcion() RETURNS trigger AS $val_desc$      
+BEGIN
+
+	IF NEW.descripcion IS NULL THEN       --- valores del trigger, esto puede ser  nuevo o viejo "NEW u OLD"
+
+		RAISE EXCEPTION 'deve de introducir los datos de descripccion del servicio a ser realizado';
+
+	END IF;
+
+	NEW.descripcion := lower(NEW.descripcion); 
+	RAISE NOTICE 'realizo la incercion con exito, se cambiaron todos los datos introducidos a minusculas con exito';
+	RETURN NEW;
+END;
+
+$val_desc$ 
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER validacion_de_descripcion 
+BEFORE INSERT OR UPDATE    
+ON servicio FOR EACH ROW 
+EXECUTE PROCEDURE validar_descripcion();
+
+create table auditar_servicio(
+	operacion char (11) not  null, 
+	fecha date not null,
+	hora time not null,
+	usuario varchar (11) not null,
+	codservicio varchar(15) not null,
+ 	descripcion varchar(50) not null,
+  	fechaservicio date not null,
+  	horaservicio time not null
+  	);
+
+CREATE OR REPLACE FUNCTION auditar_servicio() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_servicio SELECT 'ELIMINADO', now(),now(), user, OLD.codservicio, OLD.descripcion,old.fechaservicio,old.horaservicio;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_servicio SELECT 'MODIFICADO',now(),now(), user, NEW.codservicio, OLD.descripcion, OLD.fechaservicio, NEW.horaservicio;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_servico
+ AFTER INSERT OR UPDATE OR DELETE ON servicio
+ FOR EACH ROW EXECUTE PROCEDURE auditar_servicio();

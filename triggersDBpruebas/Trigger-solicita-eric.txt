@@ -1,0 +1,35 @@
+﻿----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+---
+--creacion del trigrer de auditoria  para la tabla solicita 
+
+create table auditar_solicita(
+	operacion char (11) not  null, 
+	fechaac date not null,
+	hora time not null,
+	usuario varchar (11) not null,  
+	codsolicita int not null,
+	coddueno varchar(15)not null,
+	codservicio varchar(15) not null,
+	fecha date not null,
+	codestado int not null
+);
+CREATE OR REPLACE FUNCTION auditar_solicita() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_solicita SELECT 'ELIMINADO', now(),now(), user, OLD.codsolicita , OLD.coddueno ,old.codservicio,old.fecha,OLD.codestado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_solicita SELECT 'MODIFICADO', now(),now(), user, NEW.codsolicita , OLD.coddueno , NEW.codservicio, OLD.fecha,OLD.codestado;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_la_tabla_solicita
+ AFTER INSERT OR UPDATE OR DELETE ON solicita
+ FOR EACH ROW EXECUTE PROCEDURE auditar_solicita();
+
+
+
