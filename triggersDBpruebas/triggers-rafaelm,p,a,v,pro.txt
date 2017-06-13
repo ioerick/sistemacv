@@ -1,0 +1,274 @@
+--para persona
+
+
+create table auditar_persona(
+	operacion char (11) not  null, 
+	fechaser date not null,
+	usuario varchar (11) not null,
+  codpersona varchar(15) not null ,
+  nombre varchar(50) not null,
+  apellidopaterno varchar(50) not null,
+  apellidomaterno varchar(50) not null,
+  ci varchar(15) not null,
+  fechanacimiento date not null,
+  codtelefono varchar(15) ,
+  codcorreo varchar(15) not null ,
+  codnacion varchar(15) not null ,
+  codsexo varchar(15) not null ,
+  codestado int not null 
+);
+
+
+
+CREATE OR REPLACE FUNCTION auditar_persona() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_persona SELECT 'ELIMINADO', now(), user,
+        	
+        	  OLD.codpersona,
+        	  OLD.nombre,
+        	  OLD.apellidopaterno,
+        	  OLD.apellidomaterno,
+        	  old.ci,
+        	  old.fechanacimiento,
+        	  OLD.codtelefono,
+        	  OLD.codcorreo,
+        	  OLD.codnacion,
+        	  OLD.codsexo,
+        	  OLD.codestado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_persona SELECT 'MODIFICADO', now(), user,
+        	
+        	  new.codpersona,
+        	  OLD.nombre,
+        	  new.apellidopaterno,
+        	  new.apellidomaterno,
+        	  old.ci,
+        	  old.fechanacimento,
+        	  OLD.codtelefono,
+        	  OLD.codcorreo,
+        	  OLD.codnacion,
+        	  OLD.codsexo,
+        	  OLD.codestado;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_persona
+ AFTER INSERT OR UPDATE OR DELETE ON persona
+ FOR EACH ROW EXECUTE PROCEDURE auditar_persona();
+
+
+-- para tabla veterinario
+
+
+create table auditar_veterinario(
+        operacion char (11) not  null, 
+	fechaser date not null,
+	usuario varchar (11) not null,
+  codveterinario varchar(15) not null ,
+  codpersona varchar(15) not null ,
+  codcontrato varchar(15) not null ,
+  codespecialidad varchar(15) not null ,
+  codestado int not null 
+);
+
+
+CREATE OR REPLACE FUNCTION auditar_veterinario() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_veterinario SELECT 'ELIMINADO', now(), user,
+        	
+        	  OLD.codveterinario,
+        	  OLD.codpersona,
+        	  OLD.codcontrato,
+        	  OLD.codespecialidad,
+        	  old.codestado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_veterinario SELECT 'MODIFICADO', now(), user,
+        	
+        	new.codveterinario,
+        	  OLD.codpersona,
+        	  new.codcontrato,
+        	  new.codespecialidad,
+        	  old.codestado;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_veterinario
+ AFTER INSERT OR UPDATE OR DELETE ON veterinario
+  FOR EACH ROW EXECUTE PROCEDURE auditar_veterinario();
+
+
+--para proveedor
+
+
+create table auditar_proveedor(
+        operacion char (11) not  null, 
+	fechaser date not null,
+	usuario varchar (11) not null,
+  codproveedor varchar(15) not null ,
+  codempresa varchar(15) not null ,
+  coddirecion varchar(15) not null ,
+  codcorreo varchar(15) not null ,
+  codtelefono varchar(15) not null ),
+  codestado int not null
+);
+
+CREATE OR REPLACE FUNCTION auditar_proveedor() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_proveedor SELECT 'ELIMINADO', now(), user,
+        	
+        	  OLD.codproveedor,
+        	  OLD.codempresa,
+        	  OLD.coddireccion,
+        	  OLD.codcorreo,
+        	  OLD.codtelefono,
+        	  old.codestado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_proveedor SELECT 'MODIFICADO', now(), user,
+        	
+        	 new.codproveedor,
+        	 new.codempresa,
+        	  new.coddireccion,
+        	  OLD.codcorreo,
+        	  OLD.codtelefono,
+        	  old.codestado;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_proveedor
+ AFTER INSERT OR UPDATE OR DELETE ON proveedor
+  FOR EACH ROW EXECUTE PROCEDURE auditar_proveedor();
+
+
+-- para la tabla auxiliar
+
+create table auditar_auxiliar(
+        operacion char (11) not  null, 
+	fechaser date not null,
+	usuario varchar (11) not null,
+  codauxiliar varchar(15) not null ,
+  codpersona varchar(15) not null ,
+  codcontrato varchar(15) not null ,
+  codespecialidad varchar(15) not null ,
+  codestado int not null 
+);
+
+CREATE OR REPLACE FUNCTION auditar_auxiliar() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_auxiliar SELECT 'ELIMINADO', now(), user,
+        	
+        	  OLD.codauxiliar,
+        	  OLD.codpersona,
+        	  OLD.codcontrato,
+        	  OLD.codespecialidad,
+        	  old.codestado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_auxiliar SELECT 'MODIFICADO', now(), user,
+        	
+        	  new.codauxiliar,
+        	  new.codpersona,
+        	  OLD.codcontrato,
+        	  new.codespecialidad,
+        	  old.codestado;
+        	RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_auxiliar
+ AFTER INSERT OR UPDATE OR DELETE ON auxiliar
+  FOR EACH ROW EXECUTE PROCEDURE auditar_auxiliar();
+
+-- para  tabla medicamento
+
+
+
+  create table auditar_medicamento(
+        operacion char (11) not  null, 
+	fechaser date not null,
+	usuario varchar (11) not null,
+  codmedicamento varchar(15) not null ,
+  nombre varchar(30) not null,
+  descripcion varchar(50) not null,
+  stock int not null,
+  precio varchar(15) not null ,
+  fechavencimiento date not null,
+  codestado int not null 
+);
+
+CREATE OR REPLACE FUNCTION auditar_medicamento() RETURNS TRIGGER AS $$
+	BEGIN
+    	IF (TG_OP = 'DELETE') THEN
+        	INSERT INTO auditar_medicamento SELECT 'ELIMINADO', now(), user,
+        	
+        	  OLD.codmedicamento,
+        	  OLD.nombre,
+        	  OLD.descripcion,
+        	  OLD.stock,
+        	  old.precio,
+        	  old.fechavencimiento,
+        	  old.estado;
+        	RETURN OLD;
+    	ELSIF (TG_OP = 'UPDATE') THEN
+        	INSERT INTO auditar_medicamento SELECT 'MODIFICADO', now(), user,
+        	
+                  new.codmedicamento,
+        	  new.nombre,
+        	  old.descripcion,
+        	  new.stock,
+        	  new.precio,
+        	  old.fechavencimiento,
+        	  old.estado;        	
+        	  RETURN NEW;
+    	END IF;
+    	RETURN NULL;
+	END;
+$$ LANGUAGE plpgsql;
+
+ CREATE TRIGGER auditar_el_estado_medicamento
+ AFTER INSERT OR UPDATE OR DELETE ON medicamento
+  FOR EACH ROW EXECUTE PROCEDURE auditar_medicamento();
+
+
+--creacion de codigo autoimcrementable
+
+create or replace function codigo_genera_medicamento() returns trigger as $$
+begin
+	
+		--new.codservicio := (select to_char(now(),'ddmmyyyy') || 'serv '||ltrim(lpad(to_char(coalesce(max(to_number(substring(codservicio,12,3),'999')),'o')+1,'000'),3,'0'))
+
+		--	from servicio where substring(codservicio,1,8)=to_char(now(),'ddmmyyyy') );
+
+	new.codmedicamento := (select 'med'||ltrim(lpad(to_char(coalesce(max(to_number(substring(codmedicamento,4,5),'9999'))+1,'0'),'0000'),5,'0'))
+
+		from medicamento);
+
+	if new.codmedicamento is null then
+		raise exception 'servicio introdusca un balor cannot be null value';
+	end if;
+	
+return new;
+end;
+$$ language plpgsql;
+--alter function servicio() owner to postgres;
+
+create trigger secuencia_de_codigo_medicamento 
+before insert on medicamento
+for each row execute procedure codigo_genera_medicamento()
