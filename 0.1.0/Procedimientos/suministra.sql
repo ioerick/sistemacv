@@ -1,5 +1,5 @@
 create function suministra_add(
-  pk int,
+  pk varchar(15),
   c1 varchar (15),
   c2 varchar (15),
   c3 int,
@@ -14,7 +14,7 @@ $body$
 language plpgsql;
 
 create function suministra_edit(
-  pk int,
+  pk varchar(15),
   c1 varchar (15),
   c2 varchar (15),
   c3 int,
@@ -29,7 +29,7 @@ $body$
 language plpgsql;
 
 create function suministra_delete(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -39,7 +39,7 @@ $body$
 language plpgsql;
 
 create function suministra_search(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin

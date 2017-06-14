@@ -1,5 +1,5 @@
 create function registra_add(
-  pk int,
+  pk varchar(15),
   c1 varchar(15),
   c2 varchar(15),
   c3 date,
@@ -13,7 +13,7 @@ $body$
 language plpgsql;
 
 create function registra_edit(
-  pk int,
+  pk varchar(15),
   c1 varchar(15),
   c2 varchar(15),
   c3 date,
@@ -27,7 +27,7 @@ $body$
 language plpgsql;
 
 create function registra_delete(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -37,7 +37,7 @@ $body$
 language plpgsql;
 
 create function registra_search(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
