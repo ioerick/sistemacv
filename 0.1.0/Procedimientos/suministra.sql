@@ -4,11 +4,13 @@ create function suministra_add(
   c2 varchar (15),
   c3 int,
   c4 date,
-  c5 varchar (50)
+  c5 varchar (50),
+  user varchar(15)
 ) returns void as
 $body$
 begin
 insert into suministra values (pk,c1, c2, c3, c4, c5, 1);
+insert into historial_actividades (accion, usuario, tabla, campo) values ('add', user, 'suministra', pk);
 end;
 $body$
 language plpgsql;
@@ -19,31 +21,46 @@ create function suministra_edit(
   c2 varchar (15),
   c3 int,
   c4 date,
-  c5 varchar (50)
+  c5 varchar (50),
+  user varchar(15)
 ) returns void as
 $body$
 begin
 update suministra set codmedicamento = c1 , codproveedor = c2, cantidad = c3, fecha = c4 , descripcion = c5 where codsuministra = pk and codestado !=0;
+insert into historial_actividades (accion, usuario, tabla, campo) values ('edit', user, 'suministra', pk);
 end;
 $body$
 language plpgsql;
 
 create function suministra_delete(
-  pk varchar(15)
+  pk varchar(15),
+  user varchar(15)
 ) returns void as
 $body$
 begin
 update suministra set codestado = 0 where codsuministra = pk and codestado != 0;
+insert into historial_actividades (accion, usuario, tabla, campo) values ('delete', user, 'suministra', pk);
 end;
 $body$
 language plpgsql;
 
 create function suministra_search(
-  pk varchar(15)
+  pk varchar(15),
+  user varchar(15)
 ) returns void as
 $body$
 begin
 select * from suministra where codsuministra = pk and cosestado !=0;
+insert into historial_actividades (accion, usuario, tabla, campo) values ('search', user, 'suministra', pk);
+end;
+$body$
+language plpgsql;
+
+create function suministra_view(
+) returns void as
+$body$
+begin
+select * from suministra where cosestado !=0;
 end;
 $body$
 language plpgsql;
