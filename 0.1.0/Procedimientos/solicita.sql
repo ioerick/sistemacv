@@ -1,5 +1,5 @@
 create function solicita_add(
-  pk int,
+  pk varchar(15),
   c1 varchar(15),
   c2 varchar(15),
   c3 date
@@ -12,7 +12,7 @@ $body$
 language plpgsql;
 
 create function solicita_edit(
-  pk int,
+  pk varchar(15),
   c1 varchar(15),
   c2 varchar(15),
   c3 date
@@ -25,7 +25,7 @@ $body$
 language plpgsql;
 
 create function solicita_delete(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -35,7 +35,7 @@ $body$
 language plpgsql;
 
 create function solicita_search(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
