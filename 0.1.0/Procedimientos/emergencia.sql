@@ -1,5 +1,5 @@
 create function emergencia_add(
-  pk int,
+  pk varchar(15),
   c1 varchar (15),
   c2 varchar (15),
   c3 varchar (15),
@@ -15,7 +15,7 @@ $body$
 language plpgsql;
 
 create function emergencia_edit(
-  pk int,
+  pk varchar(15),
   c1 varchar (15),
   c2 varchar (15),
   c3 varchar (15),
@@ -31,7 +31,7 @@ $body$
 language plpgsql;
 
 create function emergencia_delete(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
@@ -41,7 +41,7 @@ $body$
 language plpgsql;
 
 create function emergencia_search(
-  pk int
+  pk varchar(15)
 ) returns void as
 $body$
 begin
