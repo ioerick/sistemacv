@@ -278,3 +278,11 @@ create table solicita(
   fecha date not null,
   codestado int not null default 1 references estado(codestado)
 );
+
+create table historial_actividades(
+  codhistorial serial primary key,
+  accion varchar(10) not null,
+  usuario varchar(15) not null,
+  tabla varchar(15) not null,
+  campo varchar(15) not null
+)

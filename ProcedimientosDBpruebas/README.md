@@ -201,13 +201,13 @@ sexo-procedimientos-erick.sql
 >deleteregistra()
 >searchregistra()
 
-**asiste** --erick
+**asiste** --marco
 >addasiste()
 >editasiste()
 >deleteasiste()
 >searchasiste()
 
-**solicita** --erick
+**solicita** --marco
 >addsolicita()
 >editsolicita()
 >deletesolicita()
