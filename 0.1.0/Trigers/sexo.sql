@@ -1,6 +1,6 @@
 CREATE or replace FUNCTION registrar_insert() RETURNS trigger AS $body$
 BEGIN
-insert into historial_actividades values (3, 'insert', 'sexo', NEW.codsexo);
+insert into historial_actividades (accion, usuario, tabla, campo) values (3, 'insert', 'sexo', NEW.codsexo);
 RETURN NEW;
 END;
 $body$

@@ -284,5 +284,5 @@ create table historial_actividades(
   accion varchar(10) not null,
   usuario varchar(15) not null,
   tabla varchar(15) not null,
-  campo varchar(15) not null
+  campo varchar(15) not
 )
